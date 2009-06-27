@@ -1,0 +1,22 @@
+RadioPod
+
+Ben Hammersley ben@benhammersley.com
+
+Thanks for trying this out. It's very basic right now, but it does the job with a little prodding. You'll need LAME and Mplayer installed on your machine. Plus these Perl modules:
+
+Proc::Simple;
+Getopt::Long;
+Date::Manip;
+MP3::Info;
+
+It's controlled like so:
+
+perl recorder.pl -timestart=21:39 -timeend=21:40 --debugging -prog_name="Agincourt" -stream_url=rtsp://rmv8.bbc.net.uk/radio4/history/inourtime/inourtime.ra
+
+The start time and finish time must be in the future, but not beyond midnight. The debugging flag is optional.
+
+I have it set as a cronjob to start up five minutes before I want it to. Like this:
+
+55 6 * * * nohup /usr/bin/perl ~/recorder.pl -timestart=07:00 -timeend=08:00 -prog_name="today" -stream_url=rtsp://rmlivev8.bbc.net.uk/farm/*/ev7/live24/radio4/live/r4_dsat_g2.ra
+
+More documentation will be forthcoming.
